@@ -1,0 +1,116 @@
+name: Generate SDK for PR V1
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  statuses: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Force generation of SDKs
+        type: boolean
+        default: true
+
+env:
+  SPEAKEASY_CLI_LOCATION: /home/runner/work/branchgen-pr-test/branchgen-pr-test/bin/speakeasy
+  SPEAKEASY_ENVIRONMENT: local
+  INPUT_MODE: pr
+  INPUT_FORCE: true
+  SPEAKEASY_API_KEY: ${{secrets.SPEAKEASY_API_KEY}}
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download binary from release
+        run: |
+          echo "current working directory before mkdir  - $(pwd)"
+          mkdir -p bin
+          echo "current working directory - $(pwd)"
+          echo "Downloading speakeasy binary to: $(pwd)/bin/speakeasy"
+          curl -L -o bin/speakeasy https://github.com/speakeasy-api/branchedgeneration-cli-build-ian/releases/download/5.0.0/speakeasy
+          chmod +x bin/speakeasy
+          echo "github workspace - ${{ github.workspace }}"
+          echo "current working directory - $(pwd)"
+          echo "Full binary path: $(realpath bin/speakeasy)"
+          echo "Files in bin directory ->"
+          ls -la bin/
+          echo "Files in pwd directory ->"
+          ls -la .
+          echo "=== End of bin directory contents ==="
+          echo "SPEAKEASY_CLI_LOCATION=${{ github.workspace }}/bin/speakeasy" >> $GITHUB_ENV
+      - name: Debug Binary Architecture
+        env:
+          INPUT_GITHUB_ACCESS_TOKEN: ${{ secrets.SPEAKEASY_WORKFLOW_GITHUB_PAT }}
+        run: |
+          echo "=== Binary Architecture Debug ==="
+          echo "System architecture: $(uname -m)"
+          echo "System OS: $(uname -s)"
+          echo "Binary file info:"
+          file bin/speakeasy
+          echo "Binary permissions:"
+          ls -la bin/speakeasy
+          echo "Trying to run binary:"
+          bin/speakeasy --version || echo "Binary execution failed"
+          echo "=== End Binary Debug ==="
+      - name: Test Binary Execution
+        env:
+          INPUT_GITHUB_ACCESS_TOKEN: ${{ secrets.SPEAKEASY_WORKFLOW_GITHUB_PAT }}
+        run: |
+          echo "Testing if binary can execute..."
+          if ${{ github.workspace }}/bin/speakeasy --version; then
+            echo "✅ Binary executes successfully"
+          else
+            echo "❌ Binary execution failed"
+            exit 1
+          fi
+      - name: Debug Environment Variables
+        run: |
+          echo "SPEAKEASY_CLI_LOCATION: ${{ env.SPEAKEASY_CLI_LOCATION }}"
+      - name: Build and run custom SDK action
+        run: |
+          # Clone the repository with your changes
+          git clone https://github.com/speakeasy-api/sdk-generation-action.git /tmp/sdk-action
+          cd /tmp/sdk-action
+          git checkout ian_docker_testing
+          
+          # Build the Docker image
+          docker build -t custom-sdk-action .
+      - name: Debug Docker Container
+        run: |
+          echo "=== Debugging Docker Container ==="
+          # Check what's in /usr/bin/git in a fresh container (without running the Go app)
+          docker run --rm --entrypoint="" custom-sdk-action sh -c "ls -la /usr/bin/git && /usr/bin/git --version && echo 'Git binary info:' && file /usr/bin/git"
+          # Check if mounting the workspace changes anything (without running the Go app)
+          docker run --rm --entrypoint="" -v "${{ github.workspace }}:${{ github.workspace }}" custom-sdk-action sh -c "ls -la /usr/bin/git && /usr/bin/git --version && echo 'Git binary info:' && file /usr/bin/git"
+          echo "=== End Docker Debug ==="
+      - name: Run docker container
+        run: | 
+          # Run the container with your environment variables
+          docker run --rm \
+            -e SPEAKEASY_CLI_LOCATION="${{ github.workspace }}/bin/speakeasy" \
+            -e GITHUB_ACCESS_TOKEN="${{ secrets.SPEAKEASY_WORKFLOW_GITHUB_PAT }}" \
+            -e INPUT_GITHUB_ACCESS_TOKEN="${{ secrets.SPEAKEASY_WORKFLOW_GITHUB_PAT }}" \
+            -e GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" \
+            -e SPEAKEASY_API_KEY="${{ secrets.SPEAKEASY_API_KEY }}" \
+            -e GITHUB_SERVER_URL=https://github.com \
+            -e GITHUB_REPOSITORY="${{ github.repository }}" \
+            -e GITHUB_REPOSITORY_OWNER="${{ github.repository_owner }}" \
+            -e GITHUB_REF=refs/heads/main \
+            -e GITHUB_OUTPUT=./output.txt \
+            -e GITHUB_WORKFLOW=test \
+            -e GITHUB_WORKSPACE="${{ github.workspace }}" \
+            -e SPEAKEASY_ENVIRONMENT=local \
+            -e INPUT_MODE=pr \
+            -e INPUT_FORCE=true \
+            -e INPUT_DEBUG=true \
+            -e TARGET=overlay-example \
+            -e GITHUB_RUN_ID="${{ github.run_id }}" \
+            -e GITHUB_RUN_ATTEMPT="${{ github.run_attempt }}" \
+            -v "${{ github.workspace }}:${{ github.workspace }}" \
+            custom-sdk-action
