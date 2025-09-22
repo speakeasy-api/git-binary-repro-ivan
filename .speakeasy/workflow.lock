@@ -1,0 +1,37 @@
+speakeasyVersion: 1.606.0
+sources:
+    Swagger Petstore:
+        sourceNamespace: swagger-petstore
+        sourceRevisionDigest: sha256:ee330f39d706e8e77512852cc851bab54fbc62107f175c1b290b9eb591978a0d
+        sourceBlobDigest: sha256:545f4aba0d6efa3c2746f42428b1b7a9192454705843c3e67a57d575f773d371
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    openapi:
+        source: Swagger Petstore
+        sourceNamespace: swagger-petstore
+        sourceRevisionDigest: sha256:ee330f39d706e8e77512852cc851bab54fbc62107f175c1b290b9eb591978a0d
+        sourceBlobDigest: sha256:545f4aba0d6efa3c2746f42428b1b7a9192454705843c3e67a57d575f773d371
+        codeSamplesNamespace: swagger-petstore-ruby-code-samples
+        codeSamplesRevisionDigest: sha256:9f77dbef3cae98df7e1c7025304e7efa01ee117969bd0e6cb6f0a329fba55114
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Swagger Petstore:
+            inputs:
+                - location: openapi.yaml
+            output: .speakeasy/out.openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/ian/ian/swagger-petstore
+    targets:
+        openapi:
+            target: ruby
+            source: Swagger Petstore
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/ian/ian/swagger-petstore-ruby-code-samples
+                labelOverride:
+                    fixedValue: Ruby (SDK)
+                blocking: false

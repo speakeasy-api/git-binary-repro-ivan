@@ -1,0 +1,13 @@
+# Order
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `id`                                                                             | *T.nilable(::Integer)*                                                           | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `pet_id`                                                                         | *T.nilable(::Integer)*                                                           | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `quantity`                                                                       | *T.nilable(::Integer)*                                                           | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `ship_date`                                                                      | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html)             | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `status`                                                                         | [T.nilable(Models::Components::OrderStatus)](../../models/shared/orderstatus.md) | :heavy_minus_sign:                                                               | Order Status                                                                     |
+| `complete`                                                                       | *T.nilable(T::Boolean)*                                                          | :heavy_minus_sign:                                                               | N/A                                                                              |

@@ -1,0 +1,19 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Swagger Petstore:
+        inputs:
+            - location: openapi.yaml
+        output: .speakeasy/out.openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/ian/ian/swagger-petstore
+targets:
+    openapi:
+        target: ruby
+        source: Swagger Petstore
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/ian/ian/swagger-petstore-ruby-code-samples
+            labelOverride:
+                fixedValue: Ruby (SDK)
+            blocking: false

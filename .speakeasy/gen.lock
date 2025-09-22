@@ -1,0 +1,349 @@
+lockVersion: 2.0.0
+id: 37267b3b-21f9-4237-891a-b05feedd266a
+management:
+  docChecksum: 466aeb8d5d7370f961415ada5875ca8d
+  docVersion: 1.0.0
+  speakeasyVersion: 1.606.0
+  generationVersion: 2.686.7
+  releaseVersion: 0.0.3
+  configChecksum: 4285f1d70b6f8a783d0634f443034474
+features:
+  ruby:
+    constsAndDefaults: 0.1.1
+    core: 3.10.1
+    deprecations: 2.81.2
+    flattening: 2.81.1
+    globalSecurity: 2.81.8
+    globalSecurityFlattening: 0.1.0
+    globalServerURLs: 2.82.4
+    inputOutputModels: 2.83.0
+    methodSecurity: 2.82.2
+    responseFormat: 0.1.0
+generatedFiles:
+  - .gitattributes
+  - .rubocop.yml
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - USAGE.md
+  - docs/models/components/apiresponse.md
+  - docs/models/components/category.md
+  - docs/models/components/order.md
+  - docs/models/components/orderstatus.md
+  - docs/models/components/pet.md
+  - docs/models/components/petinput.md
+  - docs/models/components/petstatus.md
+  - docs/models/components/security.md
+  - docs/models/components/tag.md
+  - docs/models/components/user.md
+  - docs/models/operations/addpetrawresponse.md
+  - docs/models/operations/addpetresponse.md
+  - docs/models/operations/createuserresponse.md
+  - docs/models/operations/createuserswitharrayinputresponse.md
+  - docs/models/operations/createuserswithlistinputresponse.md
+  - docs/models/operations/deleteorderrequest.md
+  - docs/models/operations/deleteorderresponse.md
+  - docs/models/operations/deletepetrequest.md
+  - docs/models/operations/deletepetresponse.md
+  - docs/models/operations/deleteuserrequest.md
+  - docs/models/operations/deleteuserresponse.md
+  - docs/models/operations/file.md
+  - docs/models/operations/findpetsbystatusrequest.md
+  - docs/models/operations/findpetsbystatusresponse.md
+  - docs/models/operations/findpetsbytagsrequest.md
+  - docs/models/operations/findpetsbytagsresponse.md
+  - docs/models/operations/getinventoryresponse.md
+  - docs/models/operations/getinventorysecurity.md
+  - docs/models/operations/getorderbyidrequest.md
+  - docs/models/operations/getorderbyidresponse.md
+  - docs/models/operations/getpetbyidrequest.md
+  - docs/models/operations/getpetbyidresponse.md
+  - docs/models/operations/getpetbyidsecurity.md
+  - docs/models/operations/getuserbynamerequest.md
+  - docs/models/operations/getuserbynameresponse.md
+  - docs/models/operations/loginuserrequest.md
+  - docs/models/operations/loginuserresponse.md
+  - docs/models/operations/logoutuserresponse.md
+  - docs/models/operations/placeorderresponse.md
+  - docs/models/operations/status.md
+  - docs/models/operations/updatepetrawresponse.md
+  - docs/models/operations/updatepetresponse.md
+  - docs/models/operations/updatepetwithformrequest.md
+  - docs/models/operations/updatepetwithformrequestbody.md
+  - docs/models/operations/updatepetwithformresponse.md
+  - docs/models/operations/updateuserrequest.md
+  - docs/models/operations/updateuserresponse.md
+  - docs/models/operations/uploadfilerequest.md
+  - docs/models/operations/uploadfilerequestbody.md
+  - docs/models/operations/uploadfileresponse.md
+  - docs/sdks/openapi/README.md
+  - docs/sdks/pet/README.md
+  - docs/sdks/store/README.md
+  - docs/sdks/user/README.md
+  - extra.rbi
+  - lib/crystalline.rb
+  - lib/crystalline/metadata_fields.rb
+  - lib/crystalline/module.rb
+  - lib/crystalline/types.rb
+  - lib/crystalline/utils.rb
+  - lib/open_api_sdk/models/callbacks.rb
+  - lib/open_api_sdk/models/components.rb
+  - lib/open_api_sdk/models/components/apiresponse.rb
+  - lib/open_api_sdk/models/components/apiresponse.rbi
+  - lib/open_api_sdk/models/components/category.rb
+  - lib/open_api_sdk/models/components/category.rbi
+  - lib/open_api_sdk/models/components/order.rb
+  - lib/open_api_sdk/models/components/order.rbi
+  - lib/open_api_sdk/models/components/order_status.rb
+  - lib/open_api_sdk/models/components/order_status.rbi
+  - lib/open_api_sdk/models/components/pet.rb
+  - lib/open_api_sdk/models/components/pet.rbi
+  - lib/open_api_sdk/models/components/pet_input.rb
+  - lib/open_api_sdk/models/components/pet_input.rbi
+  - lib/open_api_sdk/models/components/pet_status.rb
+  - lib/open_api_sdk/models/components/pet_status.rbi
+  - lib/open_api_sdk/models/components/security.rb
+  - lib/open_api_sdk/models/components/security.rbi
+  - lib/open_api_sdk/models/components/tag.rb
+  - lib/open_api_sdk/models/components/tag.rbi
+  - lib/open_api_sdk/models/components/user.rb
+  - lib/open_api_sdk/models/components/user.rbi
+  - lib/open_api_sdk/models/errors.rb
+  - lib/open_api_sdk/models/errors/apierror.rb
+  - lib/open_api_sdk/models/errors/apierror.rbi
+  - lib/open_api_sdk/models/operations.rb
+  - lib/open_api_sdk/models/operations/addpet_raw_response.rb
+  - lib/open_api_sdk/models/operations/addpet_raw_response.rbi
+  - lib/open_api_sdk/models/operations/addpet_response.rb
+  - lib/open_api_sdk/models/operations/addpet_response.rbi
+  - lib/open_api_sdk/models/operations/createuser_response.rb
+  - lib/open_api_sdk/models/operations/createuser_response.rbi
+  - lib/open_api_sdk/models/operations/createuserswitharrayinput_response.rb
+  - lib/open_api_sdk/models/operations/createuserswitharrayinput_response.rbi
+  - lib/open_api_sdk/models/operations/createuserswithlistinput_response.rb
+  - lib/open_api_sdk/models/operations/createuserswithlistinput_response.rbi
+  - lib/open_api_sdk/models/operations/deleteorder_request.rb
+  - lib/open_api_sdk/models/operations/deleteorder_request.rbi
+  - lib/open_api_sdk/models/operations/deleteorder_response.rb
+  - lib/open_api_sdk/models/operations/deleteorder_response.rbi
+  - lib/open_api_sdk/models/operations/deletepet_request.rb
+  - lib/open_api_sdk/models/operations/deletepet_request.rbi
+  - lib/open_api_sdk/models/operations/deletepet_response.rb
+  - lib/open_api_sdk/models/operations/deletepet_response.rbi
+  - lib/open_api_sdk/models/operations/deleteuser_request.rb
+  - lib/open_api_sdk/models/operations/deleteuser_request.rbi
+  - lib/open_api_sdk/models/operations/deleteuser_response.rb
+  - lib/open_api_sdk/models/operations/deleteuser_response.rbi
+  - lib/open_api_sdk/models/operations/file.rb
+  - lib/open_api_sdk/models/operations/file.rbi
+  - lib/open_api_sdk/models/operations/findpetsbystatus_request.rb
+  - lib/open_api_sdk/models/operations/findpetsbystatus_request.rbi
+  - lib/open_api_sdk/models/operations/findpetsbystatus_response.rb
+  - lib/open_api_sdk/models/operations/findpetsbystatus_response.rbi
+  - lib/open_api_sdk/models/operations/findpetsbytags_request.rb
+  - lib/open_api_sdk/models/operations/findpetsbytags_request.rbi
+  - lib/open_api_sdk/models/operations/findpetsbytags_response.rb
+  - lib/open_api_sdk/models/operations/findpetsbytags_response.rbi
+  - lib/open_api_sdk/models/operations/getinventory_response.rb
+  - lib/open_api_sdk/models/operations/getinventory_response.rbi
+  - lib/open_api_sdk/models/operations/getinventory_security.rb
+  - lib/open_api_sdk/models/operations/getinventory_security.rbi
+  - lib/open_api_sdk/models/operations/getorderbyid_request.rb
+  - lib/open_api_sdk/models/operations/getorderbyid_request.rbi
+  - lib/open_api_sdk/models/operations/getorderbyid_response.rb
+  - lib/open_api_sdk/models/operations/getorderbyid_response.rbi
+  - lib/open_api_sdk/models/operations/getpetbyid_request.rb
+  - lib/open_api_sdk/models/operations/getpetbyid_request.rbi
+  - lib/open_api_sdk/models/operations/getpetbyid_response.rb
+  - lib/open_api_sdk/models/operations/getpetbyid_response.rbi
+  - lib/open_api_sdk/models/operations/getpetbyid_security.rb
+  - lib/open_api_sdk/models/operations/getpetbyid_security.rbi
+  - lib/open_api_sdk/models/operations/getuserbyname_request.rb
+  - lib/open_api_sdk/models/operations/getuserbyname_request.rbi
+  - lib/open_api_sdk/models/operations/getuserbyname_response.rb
+  - lib/open_api_sdk/models/operations/getuserbyname_response.rbi
+  - lib/open_api_sdk/models/operations/loginuser_request.rb
+  - lib/open_api_sdk/models/operations/loginuser_request.rbi
+  - lib/open_api_sdk/models/operations/loginuser_response.rb
+  - lib/open_api_sdk/models/operations/loginuser_response.rbi
+  - lib/open_api_sdk/models/operations/logoutuser_response.rb
+  - lib/open_api_sdk/models/operations/logoutuser_response.rbi
+  - lib/open_api_sdk/models/operations/placeorder_response.rb
+  - lib/open_api_sdk/models/operations/placeorder_response.rbi
+  - lib/open_api_sdk/models/operations/status.rb
+  - lib/open_api_sdk/models/operations/status.rbi
+  - lib/open_api_sdk/models/operations/updatepet_raw_response.rb
+  - lib/open_api_sdk/models/operations/updatepet_raw_response.rbi
+  - lib/open_api_sdk/models/operations/updatepet_response.rb
+  - lib/open_api_sdk/models/operations/updatepet_response.rbi
+  - lib/open_api_sdk/models/operations/updatepetwithform_request.rb
+  - lib/open_api_sdk/models/operations/updatepetwithform_request.rbi
+  - lib/open_api_sdk/models/operations/updatepetwithform_requestbody.rb
+  - lib/open_api_sdk/models/operations/updatepetwithform_requestbody.rbi
+  - lib/open_api_sdk/models/operations/updatepetwithform_response.rb
+  - lib/open_api_sdk/models/operations/updatepetwithform_response.rbi
+  - lib/open_api_sdk/models/operations/updateuser_request.rb
+  - lib/open_api_sdk/models/operations/updateuser_request.rbi
+  - lib/open_api_sdk/models/operations/updateuser_response.rb
+  - lib/open_api_sdk/models/operations/updateuser_response.rbi
+  - lib/open_api_sdk/models/operations/uploadfile_request.rb
+  - lib/open_api_sdk/models/operations/uploadfile_request.rbi
+  - lib/open_api_sdk/models/operations/uploadfile_requestbody.rb
+  - lib/open_api_sdk/models/operations/uploadfile_requestbody.rbi
+  - lib/open_api_sdk/models/operations/uploadfile_response.rb
+  - lib/open_api_sdk/models/operations/uploadfile_response.rbi
+  - lib/open_api_sdk/openapi.rb
+  - lib/open_api_sdk/pet.rb
+  - lib/open_api_sdk/sdk_hooks/hooks.rb
+  - lib/open_api_sdk/sdk_hooks/types.rb
+  - lib/open_api_sdk/sdkconfiguration.rb
+  - lib/open_api_sdk/sdkconfiguration.rbi
+  - lib/open_api_sdk/store.rb
+  - lib/open_api_sdk/user.rb
+  - lib/open_api_sdk/utils/forms.rb
+  - lib/open_api_sdk/utils/headers.rb
+  - lib/open_api_sdk/utils/query_params.rb
+  - lib/open_api_sdk/utils/request_bodies.rb
+  - lib/open_api_sdk/utils/retries.rb
+  - lib/open_api_sdk/utils/security.rb
+  - lib/open_api_sdk/utils/url.rb
+  - lib/open_api_sdk/utils/utils.rb
+  - lib/openapi.rb
+  - openapi.gemspec
+  - sorbet/config
+  - sorbet/rbi/annotations/.gitattributes
+  - sorbet/rbi/gems/.gitattributes
+  - sorbet/tapioca/config.yml
+  - sorbet/tapioca/require.rb
+examples:
+  addPet:
+    speakeasy-default-add-pet:
+      requestBody:
+        application/json: {"name": "doggie", "photoUrls": ["https://example.com/photo.png"]}
+    speakeasy-default-add-pet-raw:
+      requestBody:
+        application/xml: "0xE8DAbC9D9F"
+  updatePet:
+    speakeasy-default-update-pet:
+      requestBody:
+        application/json: {"name": "doggie", "photoUrls": ["https://example.com/photo.png"]}
+    speakeasy-default-update-pet-raw:
+      requestBody:
+        application/xml: "0x8359625Dfb"
+  findPetsByStatus:
+    speakeasy-default-find-pets-by-status:
+      parameters:
+        query:
+          status: ["available"]
+      responses:
+        "200":
+          application/xml: "0x3DA625dd77"
+          application/json: [{"id": 25, "name": "doggie", "photoUrls": ["https://example.com/photo.png"]}]
+  findPetsByTags:
+    speakeasy-default-find-pets-by-tags:
+      parameters:
+        query:
+          tags: []
+      responses:
+        "200":
+          application/xml: "0xc8a2c95b0C"
+          application/json: [{"id": 25, "name": "doggie", "photoUrls": ["https://example.com/photo.png"]}]
+  getPetById:
+    speakeasy-default-get-pet-by-id:
+      parameters:
+        path:
+          petId: 311674
+      responses:
+        "200":
+          application/xml: "0x8A56e4AaE8"
+          application/json: {"id": 25, "name": "doggie", "photoUrls": ["https://example.com/photo.png"]}
+  updatePetWithForm:
+    speakeasy-default-update-pet-with-form:
+      parameters:
+        path:
+          petId: 509712
+  deletePet:
+    speakeasy-default-delete-pet:
+      parameters:
+        path:
+          petId: 818965
+  uploadFile:
+    speakeasy-default-upload-file:
+      parameters:
+        path:
+          petId: 150516
+      responses:
+        "200":
+          application/json: {}
+  getInventory:
+    speakeasy-default-get-inventory:
+      responses:
+        "200":
+          application/json: {"key": 111959, "key1": 333452, "key2": 973245}
+  placeOrder:
+    speakeasy-default-place-order:
+      requestBody:
+        application/json: {"complete": false}
+      responses:
+        "200":
+          application/xml: "0x45eC5A0D9E"
+          application/json: {"complete": false}
+  getOrderById:
+    speakeasy-default-get-order-by-id:
+      parameters:
+        path:
+          orderId: 728529
+      responses:
+        "200":
+          application/xml: "0xa91CABa7bf"
+          application/json: {"complete": false}
+  deleteOrder:
+    speakeasy-default-delete-order:
+      parameters:
+        path:
+          orderId: 690575
+  createUser:
+    speakeasy-default-create-user:
+      requestBody:
+        application/json: {}
+  createUsersWithArrayInput:
+    speakeasy-default-create-users-with-array-input:
+      requestBody:
+        application/json: []
+  createUsersWithListInput:
+    speakeasy-default-create-users-with-list-input:
+      requestBody:
+        application/json: [{}]
+  loginUser:
+    speakeasy-default-login-user:
+      parameters:
+        query:
+          username: "Lou12"
+          password: "0eXK37kzaSWlD1X"
+      responses:
+        "200":
+          application/xml: "<value>"
+          application/json: "<value>"
+  logoutUser: {}
+  getUserByName:
+    speakeasy-default-get-user-by-name:
+      parameters:
+        path:
+          username: "Edyth10"
+      responses:
+        "200":
+          application/xml: "0x4Fdf7986a7"
+          application/json: {}
+  updateUser:
+    speakeasy-default-update-user:
+      parameters:
+        path:
+          username: "Alison.Cassin"
+      requestBody:
+        application/json: {}
+  deleteUser:
+    speakeasy-default-delete-user:
+      parameters:
+        path:
+          username: "Rita_Schuppe"
+examplesVersion: 1.0.2
