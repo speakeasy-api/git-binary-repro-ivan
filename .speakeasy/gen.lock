@@ -3,17 +3,17 @@ id: 37267b3b-21f9-4237-891a-b05feedd266a
 management:
   docChecksum: 466aeb8d5d7370f961415ada5875ca8d
   docVersion: 1.0.0
-  speakeasyVersion: 1.606.0
-  generationVersion: 2.686.7
-  releaseVersion: 0.0.3
-  configChecksum: 4285f1d70b6f8a783d0634f443034474
+  speakeasyVersion: 0.0.1
+  generationVersion: 2.711.1
+  releaseVersion: 0.0.4
+  configChecksum: 41939929cae65ebed345365012f81686
 features:
   ruby:
     constsAndDefaults: 0.1.1
-    core: 3.10.1
+    core: 3.10.2
     deprecations: 2.81.2
     flattening: 2.81.1
-    globalSecurity: 2.81.8
+    globalSecurity: 2.81.9
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
     inputOutputModels: 2.83.0
@@ -23,7 +23,6 @@ generatedFiles:
   - .gitattributes
   - .rubocop.yml
   - Gemfile
-  - Gemfile.lock
   - Rakefile
   - USAGE.md
   - docs/models/components/apiresponse.md

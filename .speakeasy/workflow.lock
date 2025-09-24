@@ -1,4 +1,4 @@
-speakeasyVersion: 1.606.0
+speakeasyVersion: 0.0.1
 sources:
     Swagger Petstore:
         sourceNamespace: swagger-petstore
@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:ee330f39d706e8e77512852cc851bab54fbc62107f175c1b290b9eb591978a0d
         sourceBlobDigest: sha256:545f4aba0d6efa3c2746f42428b1b7a9192454705843c3e67a57d575f773d371
         codeSamplesNamespace: swagger-petstore-ruby-code-samples
-        codeSamplesRevisionDigest: sha256:9f77dbef3cae98df7e1c7025304e7efa01ee117969bd0e6cb6f0a329fba55114
+        codeSamplesRevisionDigest: sha256:c2b023d4c5896f58874ae09cd0cceee33202d07c3ef9b39168883bc80dd0256e
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
