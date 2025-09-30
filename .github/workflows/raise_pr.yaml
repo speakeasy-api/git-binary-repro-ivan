@@ -33,7 +33,7 @@ jobs:
           mkdir -p bin
           echo "current working directory - $(pwd)"
           echo "Downloading speakeasy binary to: $(pwd)/bin/speakeasy"
-          curl -L -o bin/speakeasy https://github.com/speakeasy-api/branchedgeneration-cli-build-ian/releases/download/5.0.0/speakeasy
+          curl -L -o bin/speakeasy https://github.com/speakeasy-api/branchedgeneration-cli-build-ian/releases/download/5.0.1-ivan/speakeasy
           chmod +x bin/speakeasy
           echo "github workspace - ${{ github.workspace }}"
           echo "current working directory - $(pwd)"
