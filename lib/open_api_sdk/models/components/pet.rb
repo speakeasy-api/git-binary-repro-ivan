@@ -21,7 +21,7 @@ module OpenApiSDK
         field :category, Crystalline::Nilable.new(Models::Components::Category), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('category') } }
 
         field :tags, Crystalline::Nilable.new(Crystalline::Array.new(Models::Components::Tag)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }
-        # pet status in the store
+        # pet status in the store - MANUAL EDIT VERSION A
         field :status, Crystalline::Nilable.new(Models::Components::PetStatus), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Components::PetStatus, true) } }
 
         field :id, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
