@@ -612,6 +612,9 @@ components:
           format: int64
         name:
           type: string
+        description:
+          type: string
+          description: Category description from OpenAPI spec - Version B
       xml:
         name: Category
     User:
