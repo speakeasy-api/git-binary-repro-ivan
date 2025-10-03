@@ -8,7 +8,7 @@ module OpenApiSDK
   module Models
     module Components
     
-      # PetStatus - pet status in the store
+      # PetStatus - pet status in the store - SPEC EDIT VERSION B
       class PetStatus
 
 
