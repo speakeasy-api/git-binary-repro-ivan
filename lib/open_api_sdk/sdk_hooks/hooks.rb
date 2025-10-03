@@ -3,6 +3,7 @@
 # typed: false
 # frozen_string_literal: true
 
+require_relative './registration'
 require_relative './types'
 
 
@@ -17,6 +18,7 @@ module OpenApiSDK
         @before_request_hooks = []
         @after_success_hooks = []
         @after_error_hooks = []
+        Registration.init_hooks self
       end
 
       
