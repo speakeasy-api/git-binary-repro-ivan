@@ -12,4 +12,6 @@ class OpenApiSDK::Models::Components::Category
   def id=(str_); end
   def name(); end
   def name=(str_); end
+  def description(); end
+  def description=(str_); end
 end

@@ -17,18 +17,17 @@ module OpenApiSDK
         field :id, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
 
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
-
-        # Custom field added manually - Version A
+        # Category description from OpenAPI spec - Version B
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
 
-
+        
         def initialize(id: nil, name: nil, description: nil)
           @id = id
           @name = name
           @description = description
         end
 
-
+        
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id
