@@ -7,7 +7,6 @@ management:
   generationVersion: 2.711.1
   releaseVersion: 0.0.6
   configChecksum: 72bfa6353837256f1f16609e1a964b66
-  customCodePatch: "diff --git a/lib/open_api_sdk/models/components/category.rb b/lib/open_api_sdk/models/components/category.rb\nindex 1d940f3..4155e41 100644\n--- a/lib/open_api_sdk/models/components/category.rb\n+++ b/lib/open_api_sdk/models/components/category.rb\n@@ -18,17 +18,22 @@ module OpenApiSDK\n \n         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }\n \n-        \n-        def initialize(id: nil, name: nil)\n+        # Custom field added manually - Version A\n+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }\n+\n+\n+        def initialize(id: nil, name: nil, description: nil)\n           @id = id\n           @name = name\n+          @description = description\n         end\n \n-        \n+\n         def ==(other)\n           return false unless other.is_a? self.class\n           return false unless @id == other.id\n           return false unless @name == other.name\n+          return false unless @description == other.description\n           true\n         end\n       end\n"
 features:
   ruby:
     constsAndDefaults: 0.1.1
