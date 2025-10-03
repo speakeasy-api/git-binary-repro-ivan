@@ -685,7 +685,7 @@ components:
             '$ref': '#/components/schemas/Tag'
         status:
           type: string
-          description: pet status in the store
+          description: pet status in the store - SPEC EDIT VERSION B
           enum:
             - available
             - pending
