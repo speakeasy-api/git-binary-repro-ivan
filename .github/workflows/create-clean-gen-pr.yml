@@ -63,35 +63,9 @@ jobs:
         run: |
           CLEAN_GEN_BRANCH="${{ steps.check-branches.outputs.clean_gen_branch }}"
 
-          # Create PR body file
-          cat > pr_body.md <<EOF
-# SDK Generation with Resolved Conflicts
-
-This PR contains the successfully generated SDK with custom code conflicts resolved.
-
-**Source Branch:** \`$CLEAN_GEN_BRANCH\`
-**Target Branch:** \`main\`
-
-## What Happened
-
-1. SDK generation detected custom code conflicts
-2. Conflict resolution PR was created and merged
-3. This PR now contains the complete, working SDK
-
-## Next Steps
-
-1. Review the changes in this PR
-2. Verify all conflicts were properly resolved
-3. Merge to \`main\` to complete the SDK update
-
----
-This PR was created automatically after conflict resolution
-EOF
-
           # Create the PR
           gh pr create \
             --repo ${{ github.repository }} \
             --head "$CLEAN_GEN_BRANCH" \
             --base main \
-            --title "✅ SDK Update with Resolved Conflicts" \
-            --body-file pr_body.md
+            --title "✅ SDK Update with Resolved Conflicts"
