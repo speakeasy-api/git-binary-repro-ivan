@@ -68,4 +68,5 @@ jobs:
             --repo ${{ github.repository }} \
             --head "$CLEAN_GEN_BRANCH" \
             --base main \
-            --title "✅ SDK Update with Resolved Conflicts"
+            --title "✅ SDK Update with Resolved Conflicts" \
+            --body "SDK generation with custom code conflicts resolved"
