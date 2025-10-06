@@ -1,6 +1,6 @@
 # PetStatus
 
-pet status in the store
+pet status in the store - SPEC EDIT VERSION B
 
 
 ## Values
