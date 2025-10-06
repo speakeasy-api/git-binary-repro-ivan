@@ -1,0 +1,106 @@
+name: Create Clean Generation PR to Main
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  create-pr:
+    # Only run if PR was actually merged (not just closed)
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if this is a conflict resolution merge
+        id: check-branches
+        run: |
+          BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
+          HEAD_BRANCH="${{ github.event.pull_request.head.ref }}"
+
+          echo "Base branch: $BASE_BRANCH"
+          echo "Head branch: $HEAD_BRANCH"
+
+          # Check if base branch starts with speakeasy/clean-generation-
+          if [[ "$BASE_BRANCH" == speakeasy/clean-generation-* ]] && [[ "$HEAD_BRANCH" == speakeasy/resolve-* ]]; then
+            echo "This is a conflict resolution merge"
+            echo "is_conflict_resolution=true" >> $GITHUB_OUTPUT
+            echo "clean_gen_branch=$BASE_BRANCH" >> $GITHUB_OUTPUT
+          else
+            echo "This is not a conflict resolution merge"
+            echo "is_conflict_resolution=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check if PR already exists
+        if: steps.check-branches.outputs.is_conflict_resolution == 'true'
+        id: check-pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CLEAN_GEN_BRANCH="${{ steps.check-branches.outputs.clean_gen_branch }}"
+
+          # Search for existing open PR from clean-generation branch to main
+          EXISTING_PR=$(gh pr list \
+            --repo ${{ github.repository }} \
+            --head "$CLEAN_GEN_BRANCH" \
+            --base main \
+            --state open \
+            --json number \
+            --jq '.[0].number')
+
+          if [ -n "$EXISTING_PR" ]; then
+            echo "PR already exists: #$EXISTING_PR"
+            echo "pr_exists=true" >> $GITHUB_OUTPUT
+            echo "pr_number=$EXISTING_PR" >> $GITHUB_OUTPUT
+          else
+            echo "No existing PR found"
+            echo "pr_exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create PR to main
+        if: steps.check-branches.outputs.is_conflict_resolution == 'true' && steps.check-pr.outputs.pr_exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CLEAN_GEN_BRANCH="${{ steps.check-branches.outputs.clean_gen_branch }}"
+
+          # Create PR body
+          PR_BODY="# SDK Generation with Resolved Conflicts
+
+This PR contains the successfully generated SDK with custom code conflicts resolved.
+
+**Source Branch:** \`$CLEAN_GEN_BRANCH\`
+**Target Branch:** \`main\`
+
+## What Happened
+
+1. SDK generation detected custom code conflicts
+2. Conflict resolution PR was created and merged
+3. This PR now contains the complete, working SDK
+
+## Next Steps
+
+1. Review the changes in this PR
+2. Verify all conflicts were properly resolved
+3. Merge to \`main\` to complete the SDK update
+
+---
+🤖 This PR was created automatically after conflict resolution"
+
+          # Create the PR
+          gh pr create \
+            --repo ${{ github.repository }} \
+            --head "$CLEAN_GEN_BRANCH" \
+            --base main \
+            --title "✅ SDK Update with Resolved Conflicts" \
+            --body "$PR_BODY"
+
+          echo "✅ Created PR from $CLEAN_GEN_BRANCH to main"
+
+      - name: Log result
+        if: steps.check-branches.outputs.is_conflict_resolution == 'true'
+        run: |
+          if [[ "${{ steps.check-pr.outputs.pr_exists }}" == "true" ]]; then
+            echo "✅ PR already exists (#${{ steps.check-pr.outputs.pr_number }}), no action needed"
+          else
+            echo "✅ Successfully created PR to main"
+          fi
