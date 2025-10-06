@@ -64,7 +64,8 @@ jobs:
           CLEAN_GEN_BRANCH="${{ steps.check-branches.outputs.clean_gen_branch }}"
 
           # Create PR body
-          PR_BODY="# SDK Generation with Resolved Conflicts
+          PR_BODY=$(cat <<EOF
+# SDK Generation with Resolved Conflicts
 
 This PR contains the successfully generated SDK with custom code conflicts resolved.
 
@@ -81,10 +82,12 @@ This PR contains the successfully generated SDK with custom code conflicts resol
 
 1. Review the changes in this PR
 2. Verify all conflicts were properly resolved
-3. Merge to \`main\` to complete the SDK update
+3. Merge to `main` to complete the SDK update
 
 ---
-🤖 This PR was created automatically after conflict resolution"
+This PR was created automatically after conflict resolution
+EOF
+)
 
           # Create the PR
           gh pr create \
