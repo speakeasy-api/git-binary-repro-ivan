@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 0.0.1
   generationVersion: 2.711.1
-  releaseVersion: 0.0.8
-  configChecksum: 1f057ad3ba457404469e027d6efbd52c
+  releaseVersion: 0.0.9
+  configChecksum: 28fa403845642e98206c4a48a4e7e9d2
   repoURL: https://github.com/speakeasy-api/git-binary-repro-ivan.git
   installationURL: https://github.com/speakeasy-api/git-binary-repro-ivan
   customCodePatch: "diff --git a/lib/open_api_sdk/models/components/pet.rb b/lib/open_api_sdk/models/components/pet.rb\nindex 5e81d8f..45e5207 100644\n--- a/lib/open_api_sdk/models/components/pet.rb\n+++ b/lib/open_api_sdk/models/components/pet.rb\n@@ -21,7 +21,7 @@ module OpenApiSDK\n         field :category, Crystalline::Nilable.new(Models::Components::Category), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('category') } }\n \n         field :tags, Crystalline::Nilable.new(Crystalline::Array.new(Models::Components::Tag)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tags') } }\n-        # pet status in the store\n+        # pet status in the store - MANUAL EDIT VERSION A\n         field :status, Crystalline::Nilable.new(Models::Components::PetStatus), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Components::PetStatus, true) } }\n \n         field :id, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }\n"

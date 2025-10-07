@@ -82,7 +82,7 @@ s = ::OpenApiSDK::Openapi.new(
       petstore_auth: '<YOUR_PETSTORE_AUTH_HERE>',
     )
 
-req = "{\"name\":\"doggie\",\"photoUrls\":[\"https://example.com/photo.png\"]}".encode()
+req = "{\"photoUrls\":[\"https://example.com/photo.png\"],\"name\":\"doggie\"}".encode()
 
 res = s.pet.add_pet_raw(request: req)
 
