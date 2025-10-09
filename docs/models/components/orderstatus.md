@@ -1,6 +1,6 @@
 # OrderStatus
 
-Order Status
+Order Status - Updated in spec
 
 
 ## Values

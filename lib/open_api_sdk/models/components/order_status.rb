@@ -8,7 +8,7 @@ module OpenApiSDK
   module Models
     module Components
     
-      # OrderStatus - Order Status
+      # OrderStatus - Order Status - Updated in spec
       class OrderStatus
 
 

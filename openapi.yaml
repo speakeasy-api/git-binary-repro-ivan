@@ -594,7 +594,7 @@ components:
           format: date-time
         status:
           type: string
-          description: Order Status
+          description: Order Status - Updated in spec
           enum:
             - placed
             - approved
