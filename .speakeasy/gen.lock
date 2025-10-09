@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 0.0.1
   generationVersion: 2.711.1
-  releaseVersion: 0.0.9
-  configChecksum: 28fa403845642e98206c4a48a4e7e9d2
+  releaseVersion: 0.0.10
+  configChecksum: 5f5aaadd43bb5582700e0f487442ad04
   repoURL: https://github.com/speakeasy-api/git-binary-repro-ivan.git
   installationURL: https://github.com/speakeasy-api/git-binary-repro-ivan
 features:
