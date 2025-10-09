@@ -21,7 +21,7 @@ module OpenApiSDK
         field :quantity, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('quantity') } }
 
         field :ship_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('shipDate'), 'decoder': Utils.datetime_from_iso_format(true) } }
-        # Order Status
+        # custom code
         field :status, Crystalline::Nilable.new(Models::Components::OrderStatus), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Components::OrderStatus, true) } }
 
         field :complete, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('complete') } }
